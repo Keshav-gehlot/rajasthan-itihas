@@ -1,0 +1,9 @@
+{
+  "name":"Rajasthan Itihas",
+  "short_name":"RajItihas",
+  "start_url":"/",
+  "display":"standalone",
+  "background_color":"#f3eadc",
+  "theme_color":"#5b211c",
+  "icons":[{"src":"/favicon.svg","sizes":"any","type":"image/svg+xml"}]
+}
