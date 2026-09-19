@@ -3,201 +3,159 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rajasthan Itihas — History, War Lore & Folklore</title>
-  <meta name="description" content="An interactive digital archive of Rajasthan history, war lore, folk epics, forts, dynasties, culture and living traditions." />
+  <meta name="theme-color" content="#5b211c" />
+  <meta name="description" content="Rajasthan Itihas — an interactive archive of history, war lore, folklore, forts, dynasties and living traditions." />
+  <meta property="og:title" content="Rajasthan Itihas — History • War Lore • Folklore" />
+  <meta property="og:description" content="Explore Rajasthan through time, place, people, battles, folk epics and living heritage." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="site.webmanifest" />
+  <title>Rajasthan Itihas — History • War Lore • Folklore</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
   <div class="grain"></div>
+
   <header class="nav">
     <a class="brand" href="#home" aria-label="Rajasthan Itihas home">
-      <span class="brand-mark">RI</span>
-      <span>
-        <strong>RAJASTHAN ITIHAS</strong>
-        <small>History • War Lore • Folklore</small>
-      </span>
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 42 42"><circle cx="21" cy="21" r="16" fill="none"/><path d="M10 28h22M12 24l3-7 3 4 3-8 3 7 3-3 3 6M8 31h26" fill="none"/></svg></span>
+      <span><strong>RAJASTHAN ITIHAS</strong><small>History • War Lore • Folklore</small></span>
     </a>
-    <nav class="nav-links">
-      <a href="#explore">Explore</a>
-      <a href="#timeline">Timeline</a>
-      <a href="#war">War Lore</a>
-      <a href="#folklore">Folklore</a>
-      <a href="#heritage">Heritage</a>
-      <a href="#sources">Sources</a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#explore">Explore</a><a href="#timeline">Timeline</a><a href="#war">War Lore</a><a href="#folklore">Folklore</a><a href="#map">Map</a><a href="#sources">Sources</a>
     </nav>
     <div class="nav-actions">
-      <button class="icon-btn" id="searchToggle" aria-label="Search">⌕</button>
-      <button class="language" id="languageToggle">HI</button>
+      <button class="icon-btn" id="searchToggle" aria-label="Open search">⌕</button>
+      <button class="language" id="languageToggle" aria-label="Switch language">HI</button>
       <a class="pill-btn" href="#explore">Start Exploring</a>
+      <button class="menu-btn" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
     </div>
   </header>
 
-  <main id="home">
-    <section class="hero section-pad">
+  <div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#explore">Explore</a><a href="#timeline">Timeline</a><a href="#war">War Lore</a><a href="#folklore">Folklore</a><a href="#map">Map</a><a href="#sources">Sources</a>
+  </div>
+
+  <main id="mainContent">
+    <section class="hero section-pad" id="home">
       <div class="hero-copy">
-        <p class="eyebrow">A DIGITAL HISTORY OF RAJASTHAN</p>
+        <div class="hero-kicker"><span class="live-dot"></span> DIGITAL HISTORY ARCHIVE</div>
+        <p class="eyebrow">RAJASTHAN • STORIES IN LAYERS</p>
         <h1>Where every fort<br><em>remembers a story.</em></h1>
         <p class="hero-text">Explore kingdoms, battles, heroic ballads, folk epics, forts, traditions and the people who carried Rajasthan's stories across generations.</p>
-        <div class="hero-actions">
-          <a class="primary-btn" href="#timeline">Explore the timeline <span>→</span></a>
-          <a class="text-btn" href="#war">Enter War Lore <span>↗</span></a>
-        </div>
+        <div class="hero-actions"><a class="primary-btn" href="#timeline">Explore the timeline <span>→</span></a><a class="text-btn" href="#war">Enter War Lore <span>↗</span></a></div>
+        <div class="hero-stats"><div><strong>01</strong><span>History first</span></div><div><strong>02</strong><span>Source-aware</span></div><div><strong>03</strong><span>Place connected</span></div></div>
       </div>
       <div class="hero-art" aria-hidden="true">
-        <div class="sun"></div>
-        <div class="dune dune-1"></div>
-        <div class="dune dune-2"></div>
-        <div class="fort-silhouette">
-          <span class="tower t1"></span><span class="tower t2"></span><span class="tower t3"></span>
-          <span class="wall"></span>
-        </div>
-        <div class="hero-badge">
-          <span>01</span>
-          <div><b>Rajasthan</b><small>stories in layers</small></div>
-        </div>
+        <div class="hero-ornament">RI</div><div class="sun"></div><div class="starfield"></div><div class="dune dune-1"></div><div class="dune dune-2"></div>
+        <div class="fort-silhouette"><span class="tower t1"></span><span class="tower t2"></span><span class="tower t3"></span><span class="wall"></span><span class="flag"></span></div>
+        <div class="hero-caption"><span>01</span><div><b>RAJASTHAN</b><small>from archaeology to oral memory</small></div></div>
       </div>
     </section>
 
     <section class="intro-band section-pad" id="explore">
-      <div>
-        <p class="eyebrow">EXPLORE BY LAYER</p>
-        <h2>History is bigger than a list of kings.</h2>
-      </div>
-      <p class="band-text">Move from archaeology to kingdoms, then from battles to oral traditions, music, festivals, water systems and everyday life.</p>
+      <div><p class="eyebrow">EXPLORE BY LAYER</p><h2>History is bigger than a list of kings.</h2></div>
+      <p class="band-text">Move from archaeology to kingdoms, then from battles to oral traditions, music, festivals, water systems and everyday life. This archive treats history, heritage and folklore as connected layers.</p>
     </section>
 
     <section class="cards-section section-pad">
       <div class="card-grid four">
-        <button class="explore-card" data-filter="history">
-          <span class="card-no">01</span><span class="card-icon">◫</span>
-          <h3>History</h3><p>Prehistory, ancient sites, medieval states and the making of modern Rajasthan.</p><span class="card-link">Open archive →</span>
-        </button>
-        <button class="explore-card featured" data-filter="war">
-          <span class="card-no">02</span><span class="card-icon">⚔</span>
-          <h3>War Lore</h3><p>Battle stories, heroic ballads, sieges, warrior legends and battlefield memory.</p><span class="card-link">Enter war lore →</span>
-        </button>
-        <button class="explore-card" data-filter="folklore">
-          <span class="card-no">03</span><span class="card-icon">◌</span>
-          <h3>Folklore</h3><p>Phad epics, love legends, folk deities, tribal traditions and oral storytelling.</p><span class="card-link">Discover tales →</span>
-        </button>
-        <button class="explore-card" data-filter="heritage">
-          <span class="card-no">04</span><span class="card-icon">⌂</span>
-          <h3>Heritage</h3><p>Forts, architecture, music, dance, festivals, crafts and living traditions.</p><span class="card-link">See heritage →</span>
-        </button>
+        <button class="explore-card" data-filter="history"><span class="card-no">01</span><span class="card-icon">◫</span><h3>History</h3><p>Prehistory, ancient sites, medieval states and the making of modern Rajasthan.</p><span class="card-link">Open archive →</span></button>
+        <button class="explore-card featured" data-filter="war"><span class="card-no">02</span><span class="card-icon">⚔</span><h3>War Lore</h3><p>Battle stories, heroic ballads, sieges, warrior legends and battlefield memory.</p><span class="card-link">Enter war lore →</span></button>
+        <button class="explore-card" data-filter="folklore"><span class="card-no">03</span><span class="card-icon">◌</span><h3>Folklore</h3><p>Phad epics, love legends, folk deities, tribal traditions and oral storytelling.</p><span class="card-link">Discover tales →</span></button>
+        <button class="explore-card" data-filter="heritage"><span class="card-no">04</span><span class="card-icon">⌂</span><h3>Heritage</h3><p>Forts, architecture, music, dance, festivals, crafts and living traditions.</p><span class="card-link">See heritage →</span></button>
       </div>
     </section>
 
     <section class="section-pad dark-section" id="timeline">
-      <div class="section-head">
-        <div><p class="eyebrow">THE LONG VIEW</p><h2>Rajasthan through time</h2></div>
-        <button class="outline-btn" id="allTimeline">View all periods</button>
-      </div>
+      <div class="section-head"><div><p class="eyebrow">THE LONG VIEW</p><h2>Rajasthan through time</h2></div><button class="outline-btn" id="allTimeline">Expand timeline</button></div>
       <div class="timeline-wrap">
         <div class="timeline-line"></div>
-        <article class="timeline-item active" data-era="ancient">
-          <div class="timeline-dot"></div><div class="timeline-date">c. 3500–1500 BCE</div>
-          <div class="timeline-content"><h3>Archaeological Rajasthan</h3><p>Kalibangan, Ahar, Gilund and other sites reveal early settlement, farming, craft and exchange.</p><span class="tag">ARCHAEOLOGY</span></div>
-        </article>
-        <article class="timeline-item" data-era="medieval">
-          <div class="timeline-dot"></div><div class="timeline-date">8th–12th century</div>
-          <div class="timeline-content"><h3>Regional kingdoms rise</h3><p>Major political centres, expanding lineages and fortified settlements shape medieval Rajasthan.</p><span class="tag">KINGDOMS</span></div>
-        </article>
-        <article class="timeline-item" data-era="rajput">
-          <div class="timeline-dot"></div><div class="timeline-date">12th–18th century</div>
-          <div class="timeline-content"><h3>Rajput states & imperial encounters</h3><p>Mewar, Marwar, Amber/Jaipur, Bikaner, Jaisalmer and other states negotiate war, alliance and power.</p><span class="tag">POLITICS • WAR</span></div>
-        </article>
-        <article class="timeline-item" data-era="colonial">
-          <div class="timeline-dot"></div><div class="timeline-date">19th–20th century</div>
-          <div class="timeline-content"><h3>Rajputana under colonial rule</h3><p>Princely states, British political relations, resistance movements and social change reshape the region.</p><span class="tag">COLONIAL ERA</span></div>
-        </article>
-        <article class="timeline-item" data-era="modern">
-          <div class="timeline-dot"></div><div class="timeline-date">1947 → Present</div>
-          <div class="timeline-content"><h3>Integration & modern Rajasthan</h3><p>The princely states are integrated and the state's modern political and cultural geography takes shape.</p><span class="tag">MODERN RAJASTHAN</span></div>
-        </article>
+        <article class="timeline-item active"><div class="timeline-dot"></div><div class="timeline-date">c. 3500–1500 BCE</div><div class="timeline-content"><h3>Archaeological Rajasthan</h3><p>Kalibangan, Ahar, Gilund and other sites reveal early settlement, farming, craft and exchange.</p><span class="tag">ARCHAEOLOGY</span></div></article>
+        <article class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">Ancient → Early Medieval</div><div class="timeline-content"><h3>Kingdoms, routes & sacred landscapes</h3><p>Regional political centres, pilgrimage networks, trade corridors and changing landscapes shape Rajasthan.</p><span class="tag">KINGDOMS • CULTURE</span></div></article>
+        <article class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">12th–18th century</div><div class="timeline-content"><h3>Rajput states & imperial encounters</h3><p>Mewar, Marwar, Amber/Jaipur, Bikaner, Jaisalmer, Bundi, Kota and other states navigate war, alliance and power.</p><span class="tag">POLITICS • WAR</span></div></article>
+        <article class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">1818–1947</div><div class="timeline-content"><h3>Colonial Rajputana</h3><p>Princely states, British political relations, resistance movements, railways and social change transform the region.</p><span class="tag">COLONIAL ERA</span></div></article>
+        <article class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">1947 → Present</div><div class="timeline-content"><h3>Integration & modern Rajasthan</h3><p>The princely states are integrated and Rajasthan's modern political and cultural geography takes shape.</p><span class="tag">MODERN RAJASTHAN</span></div></article>
       </div>
     </section>
 
     <section class="section-pad lore-section" id="war">
-      <div class="section-head">
-        <div><p class="eyebrow">FEATURED ARCHIVE</p><h2>War Lore & Heroic Traditions</h2></div>
-        <div class="filter-row" data-group="warFilters">
-          <button class="filter active" data-war-filter="all">All</button>
-          <button class="filter" data-war-filter="battle">Battles</button>
-          <button class="filter" data-war-filter="hero">Heroes</button>
-          <button class="filter" data-war-filter="siege">Sieges</button>
-          <button class="filter" data-war-filter="ballad">Ballads</button>
-        </div>
-      </div>
+      <div class="section-head"><div><p class="eyebrow">FEATURED ARCHIVE</p><h2>War Lore & Heroic Traditions</h2></div><div class="filter-row"><button class="filter active" data-war-filter="all">All</button><button class="filter" data-war-filter="battle">Battles</button><button class="filter" data-war-filter="hero">Heroes</button><button class="filter" data-war-filter="siege">Sieges</button><button class="filter" data-war-filter="ballad">Ballads</button></div></div>
+      <div class="archive-toolbar"><span id="warCount"></span><button class="soft-btn" id="warInfo">How we label lore</button></div>
       <div class="story-grid" id="warGrid"></div>
     </section>
 
     <section class="section-pad paper-section" id="folklore">
-      <div class="split-head">
-        <div><p class="eyebrow">ORAL TRADITIONS</p><h2>Folklore beyond the battlefield</h2></div>
-        <p>Each story is tagged so the reader can distinguish historical evidence, oral tradition and later legend.</p>
-      </div>
-      <div class="legend-key">
-        <span><i class="dot verified"></i> Documented history</span>
-        <span><i class="dot mixed"></i> Multiple / traditional accounts</span>
-        <span><i class="dot oral"></i> Oral folklore</span>
-        <span><i class="dot legend"></i> Legendary / supernatural</span>
-      </div>
+      <div class="split-head"><div><p class="eyebrow">ORAL TRADITIONS</p><h2>Folklore beyond the battlefield</h2></div><p>Folklore is presented as folklore: a living tradition that can contain history, imagination, ritual, memory and multiple local versions.</p></div>
+      <div class="legend-key"><span><i class="dot verified"></i> Documented history</span><span><i class="dot mixed"></i> Multiple / traditional accounts</span><span><i class="dot oral"></i> Oral folklore</span><span><i class="dot legend"></i> Legendary / supernatural</span></div>
       <div class="story-grid folklore-grid" id="folkloreGrid"></div>
     </section>
 
-    <section class="section-pad dynasty-section">
-      <div class="section-head"><div><p class="eyebrow">POWER & LINEAGE</p><h2>Kingdoms & dynasties</h2></div><button class="outline-btn" id="dynastyAll">Open dynasty archive</button></div>
+    <section class="section-pad dynasty-section" id="dynasties">
+      <div class="section-head"><div><p class="eyebrow">POWER & LINEAGE</p><h2>Kingdoms & dynasties</h2></div><button class="outline-btn" id="dynastyAll">Explore lineages</button></div>
       <div class="dynasty-grid" id="dynastyGrid"></div>
     </section>
 
-    <section class="section-pad map-section" id="heritage">
-      <div class="map-copy"><p class="eyebrow">PLACE-BASED HISTORY</p><h2>Click a place.<br><em>Open its story.</em></h2><p>Connect a city to its dynasty, fort, battle, folklore, trade routes and cultural traditions.</p></div>
-      <div class="map-panel">
-        <div class="map-title">HISTORICAL PLACE INDEX <span>INTERACTIVE</span></div>
-        <div class="place-map" id="placeMap"></div>
-        <div class="map-detail" id="mapDetail"><strong>Select a place</strong><p>Choose a marker to explore the connected historical stories.</p></div>
+    <section class="section-pad knowledge-section" id="connections">
+      <div class="section-head"><div><p class="eyebrow">THE MISSING PIECE</p><h2>Connect the stories.</h2></div><span class="source-note">A visual knowledge graph for future expansion</span></div>
+      <div class="graph">
+        <div class="graph-center"><span>PERSON</span><strong>Maharana<br>Pratap</strong><small>Mewar</small></div>
+        <div class="graph-node n1"><span>PLACE</span><strong>Haldighati</strong><small>battlefield</small></div>
+        <div class="graph-node n2"><span>ANIMAL / LORE</span><strong>Chetak</strong><small>popular memory</small></div>
+        <div class="graph-node n3"><span>FORT</span><strong>Kumbhalgarh</strong><small>associated place</small></div>
+        <div class="graph-node n4"><span>FIGURE</span><strong>Jhala Man</strong><small>heroic tradition</small></div>
+        <div class="graph-node n5"><span>LITERATURE</span><strong>Dingal / ballad</strong><small>oral + literary memory</small></div>
+        <div class="graph-node n6"><span>OPPOSING POWER</span><strong>Akbar / Mughal state</strong><small>16th-century context</small></div>
+        <svg class="graph-lines" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true"><path d="M500 260L180 110M500 260L810 120M500 260L160 390M500 260L810 390M500 260L350 55M500 260L650 55" /></svg>
       </div>
+    </section>
+
+    <section class="section-pad modules-section">
+      <div class="section-head"><div><p class="eyebrow">BEYOND KINGS & BATTLES</p><h2>Build the full Rajasthan.</h2></div><span class="source-note">Archive roadmap</span></div>
+      <div class="module-grid">
+        <button class="module-card"><span>01</span><strong>Forts & Sieges</strong><small>architecture • defense • routes</small></button>
+        <button class="module-card"><span>02</span><strong>Women’s History</strong><small>agency • court • labour • memory</small></button>
+        <button class="module-card"><span>03</span><strong>Tribal Histories</strong><small>Bhil • Meena • Garasia • oral traditions</small></button>
+        <button class="module-card"><span>04</span><strong>Water Heritage</strong><small>baori • johad • tank • stepwell systems</small></button>
+        <button class="module-card"><span>05</span><strong>Literature</strong><small>Dingal • Pingal • Raso • Khyat</small></button>
+        <button class="module-card"><span>06</span><strong>Music & Dance</strong><small>instruments • performance • festival</small></button>
+        <button class="module-card"><span>07</span><strong>Art & Miniature</strong><small>schools • murals • Phad • visual memory</small></button>
+        <button class="module-card"><span>08</span><strong>Everyday Life</strong><small>food • dress • trade • craft • homes</small></button>
+      </div>
+    </section>
+
+    <section class="section-pad map-section" id="map">
+      <div class="map-copy"><p class="eyebrow">PLACE-BASED HISTORY</p><h2>A real map.<br><em>Stories attached to place.</em></h2><p>Zoom from the state to districts and towns, then open connected history. The map uses a real Rajasthan boundary dataset and overlays major archive places plus an Aravalli ridge line.</p><div class="map-controls"><button class="map-control active" id="stateView">State</button><button class="map-control" id="terrainView">Terrain</button><button class="map-control" id="satelliteView">Satellite</button></div></div>
+      <div class="map-panel"><div class="map-title"><span>HISTORICAL PLACE INDEX</span><span id="mapStatus">LOADING GEOMETRY…</span></div><div id="historyMap" class="leaflet-map" aria-label="Interactive map of Rajasthan"></div><div class="map-detail" id="mapDetail"><strong>Select a place</strong><p>Open a marker to see its historical connections.</p></div></div>
     </section>
 
     <section class="section-pad feature-strip">
-      <div class="strip-card"><span class="strip-icon">◉</span><div><small>FOR RESEARCH</small><h3>Every story gets a source trail.</h3><p>See whether a claim comes from archaeology, inscription, historical writing, oral tradition or later legend.</p></div><a href="#sources">See source method →</a></div>
-      <div class="strip-card"><span class="strip-icon">◈</span><div><small>FOR LEARNING</small><h3>Read it in simple language.</h3><p>Switch between English and Hindi-friendly summaries without losing the historical context.</p></div><button id="tryLanguage">Try Hindi mode →</button></div>
+      <div class="strip-card"><span class="strip-icon">◉</span><div><small>FOR RESEARCH</small><h3>Every story gets a source trail.</h3><p>See whether a claim comes from archaeology, inscription, historical writing, oral tradition or later legend.</p></div><a href="#sources">See method →</a></div>
+      <div class="strip-card"><span class="strip-icon">◈</span><div><small>FOR LEARNING</small><h3>Simple summaries, deeper context.</h3><p>Switch language without losing the distinction between record, tradition and legend.</p></div><button id="tryLanguage">Try Hindi mode →</button></div>
     </section>
 
     <section class="section-pad sources-section" id="sources">
-      <div class="section-head"><div><p class="eyebrow">SOURCE DESK</p><h2>Build with evidence</h2></div></div>
+      <div class="section-head"><div><p class="eyebrow">SOURCE DESK</p><h2>Build with evidence</h2></div><span class="source-note">Starter source layer • expand with primary records</span></div>
       <div class="source-grid">
-        <article><span>01</span><h3>Rajasthan Tourism</h3><p>Useful for official destination, monument, festival and heritage overviews.</p><a href="https://www.tourism.rajasthan.gov.in/" target="_blank" rel="noreferrer">Open source ↗</a></article>
-        <article><span>02</span><h3>UNESCO World Heritage Centre</h3><p>For globally recognized heritage sites such as the Hill Forts of Rajasthan.</p><a href="https://whc.unesco.org/en/list/247/" target="_blank" rel="noreferrer">Open source ↗</a></article>
-        <article><span>03</span><h3>IGNCA</h3><p>Strong reference for oral epics, performance traditions and cultural documentation.</p><a href="https://ignca.gov.in/" target="_blank" rel="noreferrer">Open source ↗</a></article>
-        <article><span>04</span><h3>Sahapedia</h3><p>Helpful for folk epics, performance traditions and cultural-history context.</p><a href="https://www.sahapedia.org/" target="_blank" rel="noreferrer">Open source ↗</a></article>
+        <article><span>01</span><h3>Rajasthan Tourism</h3><p>Official destination, monument, festival and heritage overviews.</p><a href="https://www.tourism.rajasthan.gov.in/" target="_blank" rel="noreferrer">Open source ↗</a></article>
+        <article><span>02</span><h3>UNESCO World Heritage</h3><p>Heritage-site descriptions and global conservation context.</p><a href="https://whc.unesco.org/en/list/247/" target="_blank" rel="noreferrer">Open source ↗</a></article>
+        <article><span>03</span><h3>IGNCA</h3><p>Oral epics, performance traditions and cultural documentation.</p><a href="https://ignca.gov.in/" target="_blank" rel="noreferrer">Open source ↗</a></article>
+        <article><span>04</span><h3>Sahapedia</h3><p>Folk epics, performance traditions and cultural-history context.</p><a href="https://www.sahapedia.org/" target="_blank" rel="noreferrer">Open source ↗</a></article>
       </div>
     </section>
 
-    <section class="cta section-pad">
-      <div><p class="eyebrow">THE ARCHIVE IS JUST THE BEGINNING</p><h2>Turn stories into a living map of Rajasthan.</h2></div>
-      <div class="cta-actions"><a class="primary-btn" href="#home">Back to top ↑</a><button class="outline-btn" id="openSearch">Search the archive</button></div>
-    </section>
+    <section class="section-pad cta"><div><p class="eyebrow">NEXT: TURN THE ARCHIVE INTO A KNOWLEDGE GRAPH</p><h2>Every person, place, battle and tale should connect.</h2></div><div class="cta-actions"><a class="primary-btn" href="#home">Back to top ↑</a><button class="outline-btn" id="openSearch">Search the archive</button></div></section>
   </main>
 
-  <div class="search-overlay" id="searchOverlay" aria-hidden="true">
-    <div class="search-box">
-      <button class="close-btn" id="searchClose">×</button>
-      <p class="eyebrow">SEARCH THE ARCHIVE</p>
-      <h2>Find a person, place, battle or lore.</h2>
-      <input id="searchInput" type="search" placeholder="Try: Haldighati, Pabuji, Mewar…" autocomplete="off" />
-      <div id="searchResults" class="search-results"></div>
-    </div>
-  </div>
-
-  <div class="modal" id="detailModal" aria-hidden="true">
-    <div class="modal-card"><button class="close-btn" id="modalClose">×</button><div id="modalBody"></div></div>
-  </div>
-
-  <footer class="footer"><span>© Rajasthan Itihas</span><span>Digital history concept • Built for exploration & research</span></footer>
+  <div class="search-overlay" id="searchOverlay" aria-hidden="true"><div class="search-box"><button class="close-btn" id="searchClose" aria-label="Close search">×</button><p class="eyebrow">SEARCH THE ARCHIVE</p><h2>Find a person, place, battle or lore.</h2><input id="searchInput" type="search" placeholder="Try: Haldighati, Pabuji, Mewar…" autocomplete="off" /><div class="search-hints"><button data-query="Haldighati">Haldighati</button><button data-query="Pabuji">Pabuji</button><button data-query="Mewar">Mewar</button><button data-query="Jodhpur">Jodhpur</button></div><div id="searchResults" class="search-results"></div></div></div>
+  <div class="modal" id="detailModal" aria-hidden="true"><div class="modal-card"><button class="close-btn" id="modalClose" aria-label="Close detail">×</button><div id="modalBody"></div></div></div>
+  <footer class="footer"><span>© Rajasthan Itihas</span><span>Digital history concept • Research-aware storytelling</span></footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script src="script.js"></script>
 </body>
 </html>
