@@ -1,28 +1,44 @@
 # Rajasthan Itihas
 
-A responsive single-page concept for a digital Rajasthan history archive.
+A React + TypeScript + Vite digital history archive for Rajasthan.
 
-## Included
-- Editorial hero / landing page
-- History layers and timeline
-- War Lore archive with filters
-- Folklore archive with evidence labels
-- Dynasty explorer
-- Interactive place index
-- Search overlay
-- Story detail modals
-- English / Hindi-friendly language toggle
-- Source desk linking to Rajasthan Tourism, UNESCO, IGNCA and Sahapedia
+## Current architecture
+- React 19 + TypeScript
+- Vite 8
+- React Leaflet interactive map
+- Data-driven history, folklore, dynasty and place records
+- Responsive editorial interface
+- Search across the archive
+- Evidence labels separating documented history from oral tradition and mixed accounts
 
-## Run
-Open `index.html` directly in a browser, or serve the folder with any static web server.
+## Archive scope
+Prehistory and archaeology, kingdoms and dynasties, rulers, battles and sieges, forts, jauhar/saka traditions, folk epics, Lok Devta traditions, love legends, tribal histories, women’s history, literature, music, dance, theatre, art, religion, pilgrimage, trade, water heritage, science and astronomy, environment, colonial Rajasthan, 1857, integration and modern Rajasthan.
 
-Example:
-
+## Run locally
 ```bash
-python -m http.server 8000
+npm install
+npm run dev
 ```
-Then open `http://localhost:8000`.
 
-## Next development step
-Move the arrays in `script.js` into JSON/PostgreSQL/API data so the map, timeline, search and story pages are fully data-driven.
+## Production build
+```bash
+npm run build
+npm run preview
+```
+
+The repository also contains a GitHub Actions build check for pushes and pull requests to main.
+
+## Important content rule
+The archive intentionally distinguishes:
+- **Documented** — supported by historical/archival evidence
+- **Tradition + record** — historical material alongside later traditions
+- **Oral folklore** — transmitted through oral/community performance
+- **Legend** — legendary or supernatural material
+
+Folklore and heroic traditions should not be presented as documentary fact without qualification.
+
+## Deployment
+The project is configured for Vercel as a Vite single-page application.
+
+## Sources
+The source desk links to institutions and cultural resources including Rajasthan Tourism, IGNCA, UNESCO and Sahapedia.
